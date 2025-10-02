@@ -58,7 +58,7 @@ function App() {
           gap: "15px",
           margin: "20px",
           justifyContent: "space-around",
-          backgroundColor: "rgb(23, 239, 23)",
+          backgroundColor: "rgb(23, 239, 23) ",
           padding: "5px",
           borderRadius: "8px",
           border: "3px white solid",
