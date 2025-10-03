@@ -1,6 +1,12 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 function Dashboard() {
+  const navigate = useNavigate();
+  const signOut = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <>
       <div>Dashboard</div>
@@ -14,6 +20,7 @@ function Dashboard() {
         </Link>
       </nav>
       <Outlet />
+      <button onClick={signOut}>logOut</button>
     </>
   );
 }

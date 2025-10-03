@@ -21,6 +21,9 @@ function Users() {
           </li>
         ))}
       </ul>
+      <Link to="/" className="animated-underline">
+        Hom page
+      </Link>
     </>
   );
 }

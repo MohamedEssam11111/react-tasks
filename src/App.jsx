@@ -18,6 +18,8 @@ import User from "./pages/User";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
+import Login from "./components/login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const items = [
@@ -76,7 +78,7 @@ function App() {
         <NavLink to="/Users" className="animated-underline">
           users
         </NavLink>
-        <NavLink to="/Dashboard" className="animated-underline">
+        <NavLink to="/dashboard" className="animated-underline">
           dashboard
         </NavLink>
       </nav>
@@ -86,7 +88,15 @@ function App() {
         <Route path="/Users" element={<Users />} />
         <Route path="/Users/:id" element={<User />} />
         <Route path="/*" element={<Notfound />} />
-        <Route path="/Dashboard" element={<Dashboard />}>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Profile />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
