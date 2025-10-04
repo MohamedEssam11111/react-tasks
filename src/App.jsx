@@ -20,7 +20,8 @@ import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
 import Login from "./components/login";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import Posts from "./components/Posts";
+import PostDetails from "./components/PostDetails";
 function App() {
   const items = [
     { id: 1, name: "mohamed" },
@@ -81,12 +82,18 @@ function App() {
         <NavLink to="/dashboard" className="animated-underline">
           dashboard
         </NavLink>
+        <NavLink to="/posts" className="animated-underline">
+          Posts
+        </NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/Users" element={<Users />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
         <Route path="/Users/:id" element={<User />} />
+        <Route path="/not-found" element={<Notfound />} />
         <Route path="/*" element={<Notfound />} />
         <Route path="/login" element={<Login />} />
         <Route
@@ -102,6 +109,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
+      {/* <Posts /> */}
     </>
   );
 }
