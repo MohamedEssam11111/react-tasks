@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const handleClick = (e) => {
     e.preventDefault();
     alert(`welcome to the dashboard ${name}😅`);

@@ -8,7 +8,13 @@ const Posts = () => {
       .then((data) => setPosts(data))
       .catch((error) => console.log(error));
   }, []);
-
+  // if(!res){
+  //   return(
+  //     <>
+  //     <div><video src="public\videos.mp4"></video></div>
+  //     </>
+  //   );
+  // }
   return (
     <>
       <ul>

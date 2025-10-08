@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Aauth from "./components/Aauth";
@@ -18,10 +18,12 @@ import User from "./pages/User";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
-import Login from "./components/login";
+import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Posts from "./components/Posts";
 import PostDetails from "./components/PostDetails";
+import FormWithUseReducer from "./components/FormWithUseReducer";
+import { ThemeContext } from "./context/ThemeContext";
 function App() {
   const items = [
     { id: 1, name: "mohamed" },
@@ -30,6 +32,7 @@ function App() {
     { id: 4, name: "mohamed" },
     { id: 5, name: "mohamed" },
   ];
+  const { theme, themeToggle } = useContext(ThemeContext);
   return (
     <>
       <p>mohemed essam</p>
@@ -110,6 +113,18 @@ function App() {
         </Route>
       </Routes>
       {/* <Posts /> */}
+      {/* prettier-ignore */}
+      <div style={{padding:"10px",margin:"30px", width:"100%", background:"radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)" , fontSize:"30px" , color:"black"}}>useReducer</div>
+      <FormWithUseReducer />
+      {/* prettier-ignore */}
+      <div style={{padding:"10px",margin:"30px", width:"100%", background:"radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)" , fontSize:"30px" , color:"black"}}>ThemeContext</div>
+      {/* prettier-ignore */}
+      <button onClick={themeToggle} className="theme-Toggle">Theme</button>
+      <Card
+        bcolor={theme === "light" ? "white" : "black"}
+        tcolor={theme === "light" ? "black" : "white"}
+        title={theme === "light" ? "light" : "dark"}
+      />
     </>
   );
 }

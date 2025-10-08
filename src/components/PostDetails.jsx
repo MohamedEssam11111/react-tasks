@@ -24,7 +24,12 @@ const PostDetails = () => {
       .catch((error) => console.log(error));
   }, []);
   if (!post) {
-    return <div>loading...</div>;
+    return (
+      <div>
+        {/* prettier-ignore */}
+        <video src="public\Hailuo_Video_looped loading 5seconds video_432413505543970823.mp4" loop muted autoPlay style={{width:"200px", height:"200px"}}></video>
+      </div>
+    );
   }
   return (
     <>
